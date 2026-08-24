@@ -117,4 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
     initMultipleChoiceQuiz("quiz-ko-en", day1Words, "ko-en", "Day 1");
     initSpellingQuiz("quiz-spelling", day1Words, "Day 1");
   }
+
+  if (typeof day2Words !== "undefined") {
+    renderWordGrid("day2-word-grid", day2Words);
+    initFlashcard("day2", day2Words, "day2-word-grid");
+
+    initMultipleChoiceQuiz("quiz2-en-ko", day2Words, "en-ko", "Day 2");
+    initMultipleChoiceQuiz("quiz2-ko-en", day2Words, "ko-en", "Day 2");
+    initSpellingQuiz("quiz2-spelling", day2Words, "Day 2");
+  }
 });

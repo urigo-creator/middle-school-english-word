@@ -46,7 +46,7 @@
 
     <nav class="tabs" data-level="sub">
       <button class="tab-btn active" data-tabgroup="vocabulary" data-target="vocabulary-day1">Day 1</button>
-      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day2" disabled>Day 2</button>
+      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day2">Day 2</button>
       <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day3" disabled>Day 3</button>
     </nav>
 
@@ -78,12 +78,35 @@
 
     </div>
 
-    <!-- ---- Day 2 / Day 3 (준비중) ---- -->
+    <!-- ---- Day 2 ---- -->
     <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day2">
-      <h2>Vocabulary · Day 2</h2>
-      <div class="content-placeholder"><p>🔒 준비 중인 콘텐츠입니다.</p></div>
+
+      <nav class="tabs" data-level="tertiary">
+        <button class="tab-btn active" data-tabgroup="day2" data-target="day2-study">📚 학습</button>
+        <button class="tab-btn" data-tabgroup="day2" data-target="day2-quiz">📝 퀴즈</button>
+      </nav>
+
+      <div class="tab-panel active" data-tabgroup="day2" id="day2-study">
+        <div class="word-grid" id="day2-word-grid"></div>
+      </div>
+
+      <div class="tab-panel" data-tabgroup="day2" id="day2-quiz">
+
+        <nav class="tabs" data-level="quiz">
+          <button class="tab-btn active" data-tabgroup="day2quiz" data-target="quiz2-en-ko">영 → 한</button>
+          <button class="tab-btn" data-tabgroup="day2quiz" data-target="quiz2-ko-en">한 → 영</button>
+          <button class="tab-btn" data-tabgroup="day2quiz" data-target="quiz2-spelling">🔊 듣고 뜻 맞히기</button>
+        </nav>
+
+        <div class="tab-panel active" data-tabgroup="day2quiz" id="quiz2-en-ko"></div>
+        <div class="tab-panel" data-tabgroup="day2quiz" id="quiz2-ko-en"></div>
+        <div class="tab-panel" data-tabgroup="day2quiz" id="quiz2-spelling"></div>
+
+      </div>
+
     </div>
 
+    <!-- ---- Day 3 (준비중) ---- -->
     <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day3">
       <h2>Vocabulary · Day 3</h2>
       <div class="content-placeholder"><p>🔒 준비 중인 콘텐츠입니다.</p></div>
@@ -114,6 +137,7 @@
 </main>
 
 <script src="js/data/day1.js"></script>
+<script src="js/data/day2.js"></script>
 <script src="js/data/reading-basic.js"></script>
 <script src="js/data/reading-intermediate.js"></script>
 <script src="js/history.js"></script>
