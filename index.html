@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>중학 영어 학습 사이트</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>📘 중학 영어 학습 사이트</h1>
+  <p class="subtitle">Reading &amp; Vocabulary</p>
+</header>
+
+<nav class="tabs" data-level="main">
+  <button class="tab-btn active" data-tabgroup="main" data-target="panel-reading">📖 Reading</button>
+  <button class="tab-btn" data-tabgroup="main" data-target="panel-vocabulary">🧠 Vocabulary</button>
+  <button class="tab-btn" data-tabgroup="main" data-target="panel-history">📊 내 기록</button>
+</nav>
+
+<main>
+
+  <!-- ================= READING ================= -->
+  <section class="tab-panel active" data-tabgroup="main" id="panel-reading">
+
+    <nav class="tabs" data-level="sub">
+      <button class="tab-btn active" data-tabgroup="reading" data-target="reading-basic">Basic</button>
+      <button class="tab-btn" data-tabgroup="reading" data-target="reading-intermediate">Intermediate</button>
+    </nav>
+
+    <div class="tab-panel active" data-tabgroup="reading" id="reading-basic">
+      <nav class="tabs" data-level="tertiary" id="reading-basic-tabs"></nav>
+      <div id="reading-basic-panels"></div>
+    </div>
+
+    <div class="tab-panel" data-tabgroup="reading" id="reading-intermediate">
+      <nav class="tabs" data-level="tertiary" id="reading-intermediate-tabs"></nav>
+      <div id="reading-intermediate-panels"></div>
+    </div>
+
+  </section>
+
+  <!-- ================= VOCABULARY ================= -->
+  <section class="tab-panel" data-tabgroup="main" id="panel-vocabulary">
+
+    <nav class="tabs" data-level="sub">
+      <button class="tab-btn active" data-tabgroup="vocabulary" data-target="vocabulary-day1">Day 1</button>
+      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day2" disabled>Day 2</button>
+      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day3" disabled>Day 3</button>
+    </nav>
+
+    <!-- ---- Day 1 ---- -->
+    <div class="tab-panel active" data-tabgroup="vocabulary" id="vocabulary-day1">
+
+      <nav class="tabs" data-level="tertiary">
+        <button class="tab-btn active" data-tabgroup="day1" data-target="day1-study">📚 학습</button>
+        <button class="tab-btn" data-tabgroup="day1" data-target="day1-quiz">📝 퀴즈</button>
+      </nav>
+
+      <div class="tab-panel active" data-tabgroup="day1" id="day1-study">
+        <div class="word-grid" id="day1-word-grid"></div>
+      </div>
+
+      <div class="tab-panel" data-tabgroup="day1" id="day1-quiz">
+
+        <nav class="tabs" data-level="quiz">
+          <button class="tab-btn active" data-tabgroup="day1quiz" data-target="quiz-en-ko">영 → 한</button>
+          <button class="tab-btn" data-tabgroup="day1quiz" data-target="quiz-ko-en">한 → 영</button>
+          <button class="tab-btn" data-tabgroup="day1quiz" data-target="quiz-spelling">🔊 듣고 뜻 맞히기</button>
+        </nav>
+
+        <div class="tab-panel active" data-tabgroup="day1quiz" id="quiz-en-ko"></div>
+        <div class="tab-panel" data-tabgroup="day1quiz" id="quiz-ko-en"></div>
+        <div class="tab-panel" data-tabgroup="day1quiz" id="quiz-spelling"></div>
+
+      </div>
+
+    </div>
+
+    <!-- ---- Day 2 / Day 3 (준비중) ---- -->
+    <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day2">
+      <h2>Vocabulary · Day 2</h2>
+      <div class="content-placeholder"><p>🔒 준비 중인 콘텐츠입니다.</p></div>
+    </div>
+
+    <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day3">
+      <h2>Vocabulary · Day 3</h2>
+      <div class="content-placeholder"><p>🔒 준비 중인 콘텐츠입니다.</p></div>
+    </div>
+
+  </section>
+
+  <!-- ================= 내 기록 ================= -->
+  <section class="tab-panel" data-tabgroup="main" id="panel-history">
+    <h2>📊 내 학습 기록</h2>
+
+    <div class="history-name-row">
+      <label for="student-name-input">이름</label>
+      <input type="text" id="student-name-input" placeholder="이름을 입력하세요" maxlength="20">
+    </div>
+
+    <p class="hint">퀴즈를 풀 때마다 이 기기에 결과가 자동으로 저장돼요. 선생님께 보낼 땐 아래 버튼으로 복사해서 카카오톡·클래스룸 등에 붙여넣으면 됩니다.</p>
+
+    <div class="history-actions">
+      <button id="copy-all-history-btn" type="button" class="quiz-copy-btn">📋 전체 기록 복사하기</button>
+      <button id="clear-history-btn" type="button" class="history-clear-btn">🗑️ 기록 삭제</button>
+    </div>
+    <p class="history-status" id="history-status"></p>
+
+    <div class="history-list" id="history-list"></div>
+  </section>
+
+</main>
+
+<script src="js/data/day1.js"></script>
+<script src="js/data/reading-basic.js"></script>
+<script src="js/data/reading-intermediate.js"></script>
+<script src="js/history.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/flashcard.js"></script>
+<script src="js/reading.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
