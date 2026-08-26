@@ -50,19 +50,33 @@ if ("speechSynthesis" in window) {
   speechSynthesis.onvoiceschanged = pickPreferredVoice;
 }
 
+// iOS/Safari는 cancel() 직후 바로 speak()하면 소리가 씹히거나 안 나오는
+// 버그가 있어서 짧게 텀을 줘야 한다. 반면 안드로이드 크롬(갤럭시 등)은
+// speak()가 클릭 이벤트 핸들러 안에서 "동기적으로" 호출되지 않으면
+// 사용자 제스처로 인정하지 않아 아예 소리가 나오지 않으므로, 안드로이드를
+// 포함한 그 외 브라우저에서는 지연 없이 즉시 재생해야 한다.
+const isIOS =
+  /iP(hone|ad|od)/.test(navigator.userAgent) ||
+  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
 function speak(text) {
   if (!("speechSynthesis" in window)) return;
-  speechSynthesis.cancel();
-  // Safari는 cancel() 직후 바로 speak()하면 소리가 씹히거나 안 나오는
-  // 버그가 있어서 짧게 텀을 준다.
-  setTimeout(() => {
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "en-US";
-    utter.rate = 0.92;
-    utter.pitch = 1;
-    if (preferredVoice) utter.voice = preferredVoice;
+
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = "en-US";
+  utter.rate = 0.92;
+  utter.pitch = 1;
+  if (preferredVoice) utter.voice = preferredVoice;
+
+  if (speechSynthesis.speaking || speechSynthesis.pending) {
+    speechSynthesis.cancel();
+  }
+
+  if (isIOS) {
+    setTimeout(() => speechSynthesis.speak(utter), 30);
+  } else {
     speechSynthesis.speak(utter);
-  }, 30);
+  }
 }
 
 // ================= 학습 카드 렌더링 =================
