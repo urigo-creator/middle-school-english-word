@@ -47,7 +47,7 @@
     <nav class="tabs" data-level="sub">
       <button class="tab-btn active" data-tabgroup="vocabulary" data-target="vocabulary-day1">Day 1</button>
       <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day2">Day 2</button>
-      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day3" disabled>Day 3</button>
+      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day17">Day 17</button>
     </nav>
 
     <!-- ---- Day 1 ---- -->
@@ -106,10 +106,32 @@
 
     </div>
 
-    <!-- ---- Day 3 (준비중) ---- -->
-    <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day3">
-      <h2>Vocabulary · Day 3</h2>
-      <div class="content-placeholder"><p>🔒 준비 중인 콘텐츠입니다.</p></div>
+    <!-- ---- Day 17 ---- -->
+    <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day17">
+
+      <nav class="tabs" data-level="tertiary">
+        <button class="tab-btn active" data-tabgroup="day17" data-target="day17-study">📚 학습</button>
+        <button class="tab-btn" data-tabgroup="day17" data-target="day17-quiz">📝 퀴즈</button>
+      </nav>
+
+      <div class="tab-panel active" data-tabgroup="day17" id="day17-study">
+        <div class="word-grid" id="day17-word-grid"></div>
+      </div>
+
+      <div class="tab-panel" data-tabgroup="day17" id="day17-quiz">
+
+        <nav class="tabs" data-level="quiz">
+          <button class="tab-btn active" data-tabgroup="day17quiz" data-target="quiz17-en-ko">영 → 한</button>
+          <button class="tab-btn" data-tabgroup="day17quiz" data-target="quiz17-ko-en">한 → 영</button>
+          <button class="tab-btn" data-tabgroup="day17quiz" data-target="quiz17-spelling">🔊 듣고 뜻 맞히기</button>
+        </nav>
+
+        <div class="tab-panel active" data-tabgroup="day17quiz" id="quiz17-en-ko"></div>
+        <div class="tab-panel" data-tabgroup="day17quiz" id="quiz17-ko-en"></div>
+        <div class="tab-panel" data-tabgroup="day17quiz" id="quiz17-spelling"></div>
+
+      </div>
+
     </div>
 
   </section>
@@ -138,6 +160,7 @@
 
 <script src="js/data/day1.js"></script>
 <script src="js/data/day2.js"></script>
+<script src="js/data/day17.js"></script>
 <script src="js/data/reading-basic.js"></script>
 <script src="js/data/reading-intermediate.js"></script>
 <script src="js/history.js"></script>

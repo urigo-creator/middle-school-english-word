@@ -158,4 +158,13 @@ document.addEventListener("DOMContentLoaded", () => {
     initMultipleChoiceQuiz("quiz2-ko-en", day2Words, "ko-en", "Day 2");
     initSpellingQuiz("quiz2-spelling", day2Words, "Day 2");
   }
+
+  if (typeof day17Words !== "undefined") {
+    renderWordGrid("day17-word-grid", day17Words);
+    initFlashcard("day17", day17Words, "day17-word-grid");
+
+    initMultipleChoiceQuiz("quiz17-en-ko", day17Words, "en-ko", "Day 17");
+    initMultipleChoiceQuiz("quiz17-ko-en", day17Words, "ko-en", "Day 17");
+    initSpellingQuiz("quiz17-spelling", day17Words, "Day 17");
+  }
 });
