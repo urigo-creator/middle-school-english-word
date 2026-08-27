@@ -59,16 +59,52 @@ const isIOS =
   /iP(hone|ad|od)/.test(navigator.userAgent) ||
   (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
-// 안드로이드 기기/브라우저마다 내장 TTS 엔진 지원이 제각각이라
-// (Samsung Internet, 일부 Galaxy 기본 브라우저 등에서 speechSynthesis가
-// 아예 동작하지 않는 경우가 있음) 기기 음성 합성에만 의존하지 않고,
-// 미리 만들어 둔 mp3 발음 파일(audio/words/)을 우선 재생한다.
-// 목록에 없는 단어일 경우에만 브라우저 speechSynthesis로 대체한다.
 function slugify(text) {
   return text
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "");
+}
+
+// 발음 재생은 아래 순서로 시도한다. 앞 단계가 실패하면 자동으로 다음 단계로 넘어가며,
+// 새 단어를 추가해도 별도 작업 없이 갤럭시·아이폰 모두에서 소리가 나도록 하는 게 목적이다.
+//   1) 미리 만들어 둔 mp3 파일 (audio/words/) — 오프라인에서도 되고 음질이 일정하다.
+//   2) 온라인 TTS (구글 번역 TTS) — mp3가 없는 단어도 사람 목소리로 재생. Samsung
+//      Internet 등 일부 갤럭시 브라우저는 speechSynthesis가 아예 동작하지 않기 때문에
+//      기기 음성 합성보다 먼저 시도한다. (네트워크 필요)
+//   3) 브라우저 speechSynthesis — 위 두 가지가 모두 안 될 때의 최후 수단.
+let currentAudio = null;
+
+// 주어진 URL을 재생한다. 재생이 시작되면 resolve, 로드/재생에 실패하면 reject 하는 Promise.
+function playAudioUrl(url) {
+  return new Promise((resolve, reject) => {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio = null;
+    }
+
+    const audio = new Audio();
+    currentAudio = audio;
+
+    // 일정 시간 안에 재생이 시작되지 않으면 실패로 간주하고 다음 단계로 넘어간다.
+    const timer = setTimeout(() => reject(new Error("audio timeout")), 4000);
+    const done = (fn) => (arg) => {
+      clearTimeout(timer);
+      fn(arg);
+    };
+    const ok = done(resolve);
+    const fail = done(reject);
+
+    audio.addEventListener("playing", () => ok(), { once: true });
+    audio.addEventListener("error", () => fail(new Error("audio error")), { once: true });
+    audio.src = url;
+    audio.play().then(ok, fail);
+  });
+}
+
+function onlineTtsUrl(text) {
+  const q = encodeURIComponent(text.trim());
+  return `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=${q}`;
 }
 
 function speakWithSynthesis(text) {
@@ -84,6 +120,7 @@ function speakWithSynthesis(text) {
     speechSynthesis.cancel();
   }
 
+  // iOS/Safari는 cancel() 직후 바로 speak()하면 소리가 씹히는 버그가 있어 짧게 텀을 준다.
   if (isIOS) {
     setTimeout(() => speechSynthesis.speak(utter), 30);
   } else {
@@ -92,9 +129,9 @@ function speakWithSynthesis(text) {
 }
 
 function speak(text) {
-  const audio = new Audio(`audio/words/${slugify(text)}.mp3`);
-  audio.addEventListener("error", () => speakWithSynthesis(text));
-  audio.play().catch(() => speakWithSynthesis(text));
+  playAudioUrl(`audio/words/${slugify(text)}.mp3`)
+    .catch(() => playAudioUrl(onlineTtsUrl(text)))
+    .catch(() => speakWithSynthesis(text));
 }
 
 // ================= 학습 카드 렌더링 =================
