@@ -178,30 +178,30 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  if (typeof day1Words !== "undefined") {
-    renderWordGrid("day1-word-grid", day1Words);
-    initFlashcard("day1", day1Words, "day1-word-grid");
+  // Day 단어장 초기화. 새 Day를 추가하려면
+  //   1) js/data/dayN.js 를 만들고 (const dayNWords = [...])
+  //   2) index.html 에 dayN 스크립트 태그와 vocabulary-dayN 패널을 추가한 뒤
+  //   3) 아래 목록에 한 줄 더 넣으면 된다.
+  // (dayNWords 는 const 전역이라 window[...] 로는 안 잡혀서 직접 나열한다.)
+  // Day 1은 예전에 만든 퀴즈 패널 id가 "quiz-..." (숫자 없음)라서 예외 처리한다.
+  const dayWordSets = [];
+  if (typeof day1Words !== "undefined") dayWordSets.push([1, day1Words]);
+  if (typeof day2Words !== "undefined") dayWordSets.push([2, day2Words]);
+  if (typeof day3Words !== "undefined") dayWordSets.push([3, day3Words]);
+  if (typeof day17Words !== "undefined") dayWordSets.push([17, day17Words]);
+  if (typeof day18Words !== "undefined") dayWordSets.push([18, day18Words]);
+  if (typeof day19Words !== "undefined") dayWordSets.push([19, day19Words]);
 
-    initMultipleChoiceQuiz("quiz-en-ko", day1Words, "en-ko", "Day 1");
-    initMultipleChoiceQuiz("quiz-ko-en", day1Words, "ko-en", "Day 1");
-    initSpellingQuiz("quiz-spelling", day1Words, "Day 1");
-  }
+  dayWordSets.forEach(([n, words]) => {
+    const prefix = `day${n}`;
+    const quizPrefix = n === 1 ? "quiz" : `quiz${n}`;
+    const label = `Day ${n}`;
 
-  if (typeof day2Words !== "undefined") {
-    renderWordGrid("day2-word-grid", day2Words);
-    initFlashcard("day2", day2Words, "day2-word-grid");
+    renderWordGrid(`${prefix}-word-grid`, words);
+    initFlashcard(prefix, words, `${prefix}-word-grid`);
 
-    initMultipleChoiceQuiz("quiz2-en-ko", day2Words, "en-ko", "Day 2");
-    initMultipleChoiceQuiz("quiz2-ko-en", day2Words, "ko-en", "Day 2");
-    initSpellingQuiz("quiz2-spelling", day2Words, "Day 2");
-  }
-
-  if (typeof day17Words !== "undefined") {
-    renderWordGrid("day17-word-grid", day17Words);
-    initFlashcard("day17", day17Words, "day17-word-grid");
-
-    initMultipleChoiceQuiz("quiz17-en-ko", day17Words, "en-ko", "Day 17");
-    initMultipleChoiceQuiz("quiz17-ko-en", day17Words, "ko-en", "Day 17");
-    initSpellingQuiz("quiz17-spelling", day17Words, "Day 17");
-  }
+    initMultipleChoiceQuiz(`${quizPrefix}-en-ko`, words, "en-ko", label);
+    initMultipleChoiceQuiz(`${quizPrefix}-ko-en`, words, "ko-en", label);
+    initSpellingQuiz(`${quizPrefix}-spelling`, words, label);
+  });
 });

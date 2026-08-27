@@ -47,7 +47,10 @@
     <nav class="tabs" data-level="sub">
       <button class="tab-btn active" data-tabgroup="vocabulary" data-target="vocabulary-day1">Day 1</button>
       <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day2">Day 2</button>
+      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day3">Day 3</button>
       <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day17">Day 17</button>
+      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day18">Day 18</button>
+      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day19">Day 19</button>
     </nav>
 
     <!-- ---- Day 1 ---- -->
@@ -106,6 +109,34 @@
 
     </div>
 
+    <!-- ---- Day 3 ---- -->
+    <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day3">
+
+      <nav class="tabs" data-level="tertiary">
+        <button class="tab-btn active" data-tabgroup="day3" data-target="day3-study">📚 학습</button>
+        <button class="tab-btn" data-tabgroup="day3" data-target="day3-quiz">📝 퀴즈</button>
+      </nav>
+
+      <div class="tab-panel active" data-tabgroup="day3" id="day3-study">
+        <div class="word-grid" id="day3-word-grid"></div>
+      </div>
+
+      <div class="tab-panel" data-tabgroup="day3" id="day3-quiz">
+
+        <nav class="tabs" data-level="quiz">
+          <button class="tab-btn active" data-tabgroup="day3quiz" data-target="quiz3-en-ko">영 → 한</button>
+          <button class="tab-btn" data-tabgroup="day3quiz" data-target="quiz3-ko-en">한 → 영</button>
+          <button class="tab-btn" data-tabgroup="day3quiz" data-target="quiz3-spelling">🔊 듣고 뜻 맞히기</button>
+        </nav>
+
+        <div class="tab-panel active" data-tabgroup="day3quiz" id="quiz3-en-ko"></div>
+        <div class="tab-panel" data-tabgroup="day3quiz" id="quiz3-ko-en"></div>
+        <div class="tab-panel" data-tabgroup="day3quiz" id="quiz3-spelling"></div>
+
+      </div>
+
+    </div>
+
     <!-- ---- Day 17 ---- -->
     <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day17">
 
@@ -129,6 +160,62 @@
         <div class="tab-panel active" data-tabgroup="day17quiz" id="quiz17-en-ko"></div>
         <div class="tab-panel" data-tabgroup="day17quiz" id="quiz17-ko-en"></div>
         <div class="tab-panel" data-tabgroup="day17quiz" id="quiz17-spelling"></div>
+
+      </div>
+
+    </div>
+
+    <!-- ---- Day 18 ---- -->
+    <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day18">
+
+      <nav class="tabs" data-level="tertiary">
+        <button class="tab-btn active" data-tabgroup="day18" data-target="day18-study">📚 학습</button>
+        <button class="tab-btn" data-tabgroup="day18" data-target="day18-quiz">📝 퀴즈</button>
+      </nav>
+
+      <div class="tab-panel active" data-tabgroup="day18" id="day18-study">
+        <div class="word-grid" id="day18-word-grid"></div>
+      </div>
+
+      <div class="tab-panel" data-tabgroup="day18" id="day18-quiz">
+
+        <nav class="tabs" data-level="quiz">
+          <button class="tab-btn active" data-tabgroup="day18quiz" data-target="quiz18-en-ko">영 → 한</button>
+          <button class="tab-btn" data-tabgroup="day18quiz" data-target="quiz18-ko-en">한 → 영</button>
+          <button class="tab-btn" data-tabgroup="day18quiz" data-target="quiz18-spelling">🔊 듣고 뜻 맞히기</button>
+        </nav>
+
+        <div class="tab-panel active" data-tabgroup="day18quiz" id="quiz18-en-ko"></div>
+        <div class="tab-panel" data-tabgroup="day18quiz" id="quiz18-ko-en"></div>
+        <div class="tab-panel" data-tabgroup="day18quiz" id="quiz18-spelling"></div>
+
+      </div>
+
+    </div>
+
+    <!-- ---- Day 19 ---- -->
+    <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day19">
+
+      <nav class="tabs" data-level="tertiary">
+        <button class="tab-btn active" data-tabgroup="day19" data-target="day19-study">📚 학습</button>
+        <button class="tab-btn" data-tabgroup="day19" data-target="day19-quiz">📝 퀴즈</button>
+      </nav>
+
+      <div class="tab-panel active" data-tabgroup="day19" id="day19-study">
+        <div class="word-grid" id="day19-word-grid"></div>
+      </div>
+
+      <div class="tab-panel" data-tabgroup="day19" id="day19-quiz">
+
+        <nav class="tabs" data-level="quiz">
+          <button class="tab-btn active" data-tabgroup="day19quiz" data-target="quiz19-en-ko">영 → 한</button>
+          <button class="tab-btn" data-tabgroup="day19quiz" data-target="quiz19-ko-en">한 → 영</button>
+          <button class="tab-btn" data-tabgroup="day19quiz" data-target="quiz19-spelling">🔊 듣고 뜻 맞히기</button>
+        </nav>
+
+        <div class="tab-panel active" data-tabgroup="day19quiz" id="quiz19-en-ko"></div>
+        <div class="tab-panel" data-tabgroup="day19quiz" id="quiz19-ko-en"></div>
+        <div class="tab-panel" data-tabgroup="day19quiz" id="quiz19-spelling"></div>
 
       </div>
 
@@ -160,7 +247,10 @@
 
 <script src="js/data/day1.js"></script>
 <script src="js/data/day2.js"></script>
+<script src="js/data/day3.js"></script>
 <script src="js/data/day17.js"></script>
+<script src="js/data/day18.js"></script>
+<script src="js/data/day19.js"></script>
 <script src="js/data/reading-basic.js"></script>
 <script src="js/data/reading-intermediate.js"></script>
 <script src="js/history.js"></script>
