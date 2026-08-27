@@ -59,7 +59,19 @@ const isIOS =
   /iP(hone|ad|od)/.test(navigator.userAgent) ||
   (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
-function speak(text) {
+// 안드로이드 기기/브라우저마다 내장 TTS 엔진 지원이 제각각이라
+// (Samsung Internet, 일부 Galaxy 기본 브라우저 등에서 speechSynthesis가
+// 아예 동작하지 않는 경우가 있음) 기기 음성 합성에만 의존하지 않고,
+// 미리 만들어 둔 mp3 발음 파일(audio/words/)을 우선 재생한다.
+// 목록에 없는 단어일 경우에만 브라우저 speechSynthesis로 대체한다.
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+function speakWithSynthesis(text) {
   if (!("speechSynthesis" in window)) return;
 
   const utter = new SpeechSynthesisUtterance(text);
@@ -77,6 +89,12 @@ function speak(text) {
   } else {
     speechSynthesis.speak(utter);
   }
+}
+
+function speak(text) {
+  const audio = new Audio(`audio/words/${slugify(text)}.mp3`);
+  audio.addEventListener("error", () => speakWithSynthesis(text));
+  audio.play().catch(() => speakWithSynthesis(text));
 }
 
 // ================= 학습 카드 렌더링 =================
