@@ -30,9 +30,10 @@ function slugify(text) {
     .replace(/^_+|_+$/g, "");
 }
 
+// Day 단어장(dayN.js)과 Reading 지문 단어장(reading-*.js) 모두에서 영어 단어를 모은다.
 const dataFiles = fs
   .readdirSync(DATA_DIR)
-  .filter((f) => /^day\d+\.js$/.test(f))
+  .filter((f) => /^day\d+\.js$/.test(f) || /^reading-.+\.js$/.test(f))
   .sort();
 
 const words = new Map(); // slug -> 원문

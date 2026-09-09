@@ -27,6 +27,7 @@
     <nav class="tabs" data-level="sub">
       <button class="tab-btn active" data-tabgroup="reading" data-target="reading-basic">Basic</button>
       <button class="tab-btn" data-tabgroup="reading" data-target="reading-intermediate">Intermediate</button>
+      <button class="tab-btn" data-tabgroup="reading" data-target="reading-intermediate2">Intermediate 2</button>
     </nav>
 
     <div class="tab-panel active" data-tabgroup="reading" id="reading-basic">
@@ -39,6 +40,11 @@
       <div id="reading-intermediate-panels"></div>
     </div>
 
+    <div class="tab-panel" data-tabgroup="reading" id="reading-intermediate2">
+      <nav class="tabs" data-level="tertiary" id="reading-intermediate2-tabs"></nav>
+      <div id="reading-intermediate2-panels"></div>
+    </div>
+
   </section>
 
   <!-- ================= VOCABULARY ================= -->
@@ -49,6 +55,8 @@
       <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day2">Day 2</button>
       <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day3">Day 3</button>
       <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day4">Day 4</button>
+      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day5">Day 5</button>
+      <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day6">Day 6</button>
       <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day17">Day 17</button>
       <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day18">Day 18</button>
       <button class="tab-btn" data-tabgroup="vocabulary" data-target="vocabulary-day19">Day 19</button>
@@ -163,6 +171,62 @@
         <div class="tab-panel active" data-tabgroup="day4quiz" id="quiz4-en-ko"></div>
         <div class="tab-panel" data-tabgroup="day4quiz" id="quiz4-ko-en"></div>
         <div class="tab-panel" data-tabgroup="day4quiz" id="quiz4-spelling"></div>
+
+      </div>
+
+    </div>
+
+    <!-- ---- Day 5 ---- -->
+    <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day5">
+
+      <nav class="tabs" data-level="tertiary">
+        <button class="tab-btn active" data-tabgroup="day5" data-target="day5-study">📚 학습</button>
+        <button class="tab-btn" data-tabgroup="day5" data-target="day5-quiz">📝 퀴즈</button>
+      </nav>
+
+      <div class="tab-panel active" data-tabgroup="day5" id="day5-study">
+        <div class="word-grid" id="day5-word-grid"></div>
+      </div>
+
+      <div class="tab-panel" data-tabgroup="day5" id="day5-quiz">
+
+        <nav class="tabs" data-level="quiz">
+          <button class="tab-btn active" data-tabgroup="day5quiz" data-target="quiz5-en-ko">영 → 한</button>
+          <button class="tab-btn" data-tabgroup="day5quiz" data-target="quiz5-ko-en">한 → 영</button>
+          <button class="tab-btn" data-tabgroup="day5quiz" data-target="quiz5-spelling">🔊 듣고 뜻 맞히기</button>
+        </nav>
+
+        <div class="tab-panel active" data-tabgroup="day5quiz" id="quiz5-en-ko"></div>
+        <div class="tab-panel" data-tabgroup="day5quiz" id="quiz5-ko-en"></div>
+        <div class="tab-panel" data-tabgroup="day5quiz" id="quiz5-spelling"></div>
+
+      </div>
+
+    </div>
+
+    <!-- ---- Day 6 ---- -->
+    <div class="tab-panel" data-tabgroup="vocabulary" id="vocabulary-day6">
+
+      <nav class="tabs" data-level="tertiary">
+        <button class="tab-btn active" data-tabgroup="day6" data-target="day6-study">📚 학습</button>
+        <button class="tab-btn" data-tabgroup="day6" data-target="day6-quiz">📝 퀴즈</button>
+      </nav>
+
+      <div class="tab-panel active" data-tabgroup="day6" id="day6-study">
+        <div class="word-grid" id="day6-word-grid"></div>
+      </div>
+
+      <div class="tab-panel" data-tabgroup="day6" id="day6-quiz">
+
+        <nav class="tabs" data-level="quiz">
+          <button class="tab-btn active" data-tabgroup="day6quiz" data-target="quiz6-en-ko">영 → 한</button>
+          <button class="tab-btn" data-tabgroup="day6quiz" data-target="quiz6-ko-en">한 → 영</button>
+          <button class="tab-btn" data-tabgroup="day6quiz" data-target="quiz6-spelling">🔊 듣고 뜻 맞히기</button>
+        </nav>
+
+        <div class="tab-panel active" data-tabgroup="day6quiz" id="quiz6-en-ko"></div>
+        <div class="tab-panel" data-tabgroup="day6quiz" id="quiz6-ko-en"></div>
+        <div class="tab-panel" data-tabgroup="day6quiz" id="quiz6-spelling"></div>
 
       </div>
 
@@ -336,6 +400,8 @@
 <script src="js/data/day2.js"></script>
 <script src="js/data/day3.js"></script>
 <script src="js/data/day4.js"></script>
+<script src="js/data/day5.js"></script>
+<script src="js/data/day6.js"></script>
 <script src="js/data/day17.js"></script>
 <script src="js/data/day18.js"></script>
 <script src="js/data/day19.js"></script>
@@ -343,6 +409,7 @@
 <script src="js/data/day21.js"></script>
 <script src="js/data/reading-basic.js"></script>
 <script src="js/data/reading-intermediate.js"></script>
+<script src="js/data/reading-intermediate2.js"></script>
 <script src="js/history.js"></script>
 <script src="js/quiz.js"></script>
 <script src="js/flashcard.js"></script>

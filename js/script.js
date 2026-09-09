@@ -149,6 +149,15 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+  if (typeof readingIntermediate2Passages !== "undefined") {
+    renderReadingPassages(
+      "reading-intermediate2",
+      "reading-intermediate2-tabs",
+      "reading-intermediate2-panels",
+      readingIntermediate2Passages
+    );
+  }
+
   // Day 단어장 초기화. 새 Day를 추가하려면
   //   1) js/data/dayN.js 를 만들고 (const dayNWords = [...])
   //   2) index.html 에 dayN 스크립트 태그와 vocabulary-dayN 패널을 추가한 뒤
@@ -160,6 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof day2Words !== "undefined") dayWordSets.push([2, day2Words]);
   if (typeof day3Words !== "undefined") dayWordSets.push([3, day3Words]);
   if (typeof day4Words !== "undefined") dayWordSets.push([4, day4Words]);
+  if (typeof day5Words !== "undefined") dayWordSets.push([5, day5Words]);
+  if (typeof day6Words !== "undefined") dayWordSets.push([6, day6Words]);
   if (typeof day17Words !== "undefined") dayWordSets.push([17, day17Words]);
   if (typeof day18Words !== "undefined") dayWordSets.push([18, day18Words]);
   if (typeof day19Words !== "undefined") dayWordSets.push([19, day19Words]);
