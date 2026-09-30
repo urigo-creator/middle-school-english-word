@@ -172,6 +172,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof day5Words !== "undefined") dayWordSets.push([5, day5Words]);
   if (typeof day6Words !== "undefined") dayWordSets.push([6, day6Words]);
   if (typeof day7Words !== "undefined") dayWordSets.push([7, day7Words]);
+  if (typeof day8Words !== "undefined") dayWordSets.push([8, day8Words]);
+  if (typeof day9Words !== "undefined") dayWordSets.push([9, day9Words]);
+  if (typeof day10Words !== "undefined") dayWordSets.push([10, day10Words]);
   if (typeof day17Words !== "undefined") dayWordSets.push([17, day17Words]);
   if (typeof day18Words !== "undefined") dayWordSets.push([18, day18Words]);
   if (typeof day19Words !== "undefined") dayWordSets.push([19, day19Words]);
