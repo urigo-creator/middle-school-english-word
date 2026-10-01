@@ -183,6 +183,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof day22Words !== "undefined") dayWordSets.push([22, day22Words]);
   if (typeof day23Words !== "undefined") dayWordSets.push([23, day23Words]);
   if (typeof day24Words !== "undefined") dayWordSets.push([24, day24Words]);
+  if (typeof day25Words !== "undefined") dayWordSets.push([25, day25Words]);
+  if (typeof day26Words !== "undefined") dayWordSets.push([26, day26Words]);
+  if (typeof day27Words !== "undefined") dayWordSets.push([27, day27Words]);
 
   dayWordSets.forEach(([n, words]) => {
     const prefix = `day${n}`;
